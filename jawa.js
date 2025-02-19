@@ -1,7 +1,6 @@
 const apiKey = "zInF0zt7xgMzMiTrRPWdbhsZRxdahoLTRgTPKBwE";
-        const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
 
-        fetch(apiUrl)
+        fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
             .then(response => response.json())
             .then(data => {
                 document.getElementById("title").innerText = data.title;
