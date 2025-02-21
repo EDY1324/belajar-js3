@@ -1,10 +1,37 @@
-const apiKey = "zInF0zt7xgMzMiTrRPWdbhsZRxdahoLTRgTPKBwE";
+var dataBarang = [
+    "Buku Tulis",
+    "Pensil",
+    "Spidol"
+];
 
-        fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("title").innerText = data.title;
-                document.getElementById("image").src = data.url;
-                document.getElementById("description").innerText = data.explanation;
-            })
-            .catch(error => console.error("Terjadi kesalahan:", error));
+
+function showBarang(){
+    var listBarang = document.getElementById("list-barang");
+    listBarang.innerHTML = "";
+
+    for(let i = 0; i < dataBarang.length; i++){
+        var btnEdit = "<a href='#' onclick='editBarang("+i+")'>Edit</a>";
+        var btnHapus = "<a href='#' onclick='deleteBarang("+i+")'>Hapus</a>";
+
+        listBarang.innerHTML += "<li>" + dataBarang[i] + " ["+btnEdit + " | "+ btnHapus +"]</li>";        
+    }
+}
+
+function addBarang(){
+    var input = document.querySelector("input[name=barang]");
+    dataBarang.push(input.value);
+    showBarang();
+}
+
+function editBarang(id){
+    var newBarang = prompt("Nama baru", dataBarang[id]);
+    dataBarang[id] = newBarang;
+    showBarang();
+}
+
+function deleteBarang(id){
+    dataBarang.splice(id, 1);
+    showBarang();
+}
+
+showBarang();
