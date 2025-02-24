@@ -1,10 +1,14 @@
-function bagi(a,b){
-    hasilBagi = a / b;
-    return hasilBagi;
+function kali(angka){
+    return angka * 9;
 }
+hasil = kali(4);
+console.log(hasil)
 
-var nilai1 = 200;
-var nilai2 = 9;
-var hasilPembagian = bagi(nilai1,nilai2);
+hasil = kali(9);
+console.log(hasil)
 
-console.log(hasilBagi);
+
+function sayHello(message = "ILY") {
+    console.log("Pesan: " + message);
+}
+sayHello();
