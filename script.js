@@ -1,31 +1,56 @@
-// Anonymous Function (harus pakai return jika ingin multi-line)
-let tambah = function (a,b) {
-    return a + b;
+//semua ini adalah pembelajan saya(Edy Prabowo) tentang JavaScript
+//ini adalah object dan properti pertama
+const person = {
+    name: "Aoi Kazuma",
+    age: 17,
+    tall: 170,
+    eyeColor: "Blue"
+};
+document.getElementById("p0").innerHTML = person.name + "," + person.tall + "," + person.age + "," + person.eyeColor;
+console.log(person);
+
+//ini adalah object dan properti ke 2
+const person2 = {
+    name: "Edy Prabowo",
+    age: 17,
+    tall: 180,
+    eyeColor: "Brown"
+};
+
+//pengulangan
+let text = "";
+for (let x in person2) {
+    text += person2[x] + " " + "<br>";
+};
+document.getElementById("p1").innerHTML = text;
+console.log(text);
+
+//ini adalah object dan properti ke 3
+const person3 = {
+    name: "Kazumi",
+    age: 17,
+    tall: 160,
+    eyeColor: "Pink"
+};
+
+//ini menggunakan Object.values()
+const myArray = Object.values(person3);
+
+document.getElementById("p2").innerHTML = myArray;
+console.log(myArray);
+
+//fungsi konstruktor untuk Object Person4
+function person4 (name,age,tall,eye) {
+    this.name = name;
+    this.age = age;
+    this.tall = tall;
+    this.eyeColor = eye;
+    this.nationality = "Indosesia";
 }
-console.log("Anonymous:",tambah(9,6));
 
-// Arrow Function (bisa implicit return jika satu baris)
-let kali = (a,b) => a * b;
-console.log("Arrow:",kali(6,9));
+//membuat 2 Person4 Object
+const ayah = new person4("Kugaa", 51, 185, "Blue");
+const ibu = new person4("Nami", 39, 178, "Brown");
 
-// Anonymous Function (this tergantung pemanggilan)
-let person1 = {
-    name: "Kazuma",
-    sayHallo: function(){
-        console.log(`Hello, my name is ${this.name}`);
-    }
-};
-person1.sayHallo();
-
-//Arrow Function (this tetap mengacu ke konteks luar)
-let person2 = {
-    name: "Edy",
-    sayHallo: () => {
-        console.log(`Hello, my name is ${this.name}`);
-    }
-};
-person2.sayHallo();
-
-//dia hanya bisa menggunakan code ini
-const greet = (name) => `Haloo!, aku ${name}`;
-console.log(greet("Edy"));
+document.getElementById("p3").innerHTML = "Ayahku dari" + ayah.nationality + ". Ibuku dari" + ibu.nationality;
+console.log(person4);
