@@ -9,7 +9,8 @@ function person (name,age,height,weight) {
 // membuat array yang berisikan object
 const anak = [
     new person ("Edy", 17, 170, 60),
-    new person ("Rayhan", 13, 169, 58)
+    new person ("Rayhan", 13, 169, 58),
+    new person ("Habib", 6, 140, 40)
 ];
 
 //pemanggilan di web console
@@ -22,3 +23,7 @@ console.log("Nama:",anak[1].name);
 console.log("Umur:",anak[1].age);
 console.log("TB:",anak[1].height);
 console.log("BB:",anak[1].weight);
+console.log("Nama:",anak[2].name);
+console.log("Umur:",anak[2].age);
+console.log("TB:",anak[2].height);
+console.log("BB:",anak[2].weight);
