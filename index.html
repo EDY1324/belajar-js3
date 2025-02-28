@@ -4,11 +4,31 @@
         <title>Fungsi</title>
     </head>
     <body>
-        <p id="p0"></p>
-        <p id="p1"></p>
-        <p id="p2"></p>
-        <p id="p3"></p>
-        <p id="p4"></p>
+        <h2>Data Anak</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Umur</th>
+                    <th>Tinggi Badan (cm)</th>
+                    <th>Berat Badan (kg)</th>
+                </tr>
+            </thead>
+            <tbody id="output"></tbody>
+        </table>
+
+        <h3>Cari Anak</h3>
+        <input type="text" id="searchName" placeholder="Masukan Nama">
+        <button onclick="cariAnak()">Cari</button>
+        <p id="searchResult"></p>
+
+        <h3>Tambah Anak</h3>
+        <input type="text" id="name" placeholder="Nama">
+        <input type="number" id="age" placeholder="Umur">
+        <input type="number" id="height" placeholder="Tinggi Badan (cm)">
+        <input type="number" id="weight" placeholder="Berat Badan (kg)">
+        <button onclick="tambahAnak()">Tambah</button>
+        
         <script src="script.js"></script>
     </body>
 </html>
