@@ -12,7 +12,7 @@ const anak = [
     new person ("Habib", 6, 140, 40)
 ];
 // Menampilkan dengan menggunakan Pengulangan
-function tampilkanAnak() {
+function tampilkan() {
 let text = "";
 anak.forEach(a => {
     text += `<tr>
@@ -25,7 +25,7 @@ anak.forEach(a => {
 document.getElementById("output").innerHTML = text;
 }
 //membuat fungsi mencari nama anak
-function cariAnak () {
+function cari() {
     let searchName = document.getElementById("searchName").value.toLowerCase();
     let found = anak.find(a => a.name.toLowerCase() === searchName);
 
@@ -36,7 +36,7 @@ function cariAnak () {
     }
 }
 //membuat fungsi menambahkan anak
-function tambahAnak() {
+function tambah() {
     let name = document.getElementById("name").value;
     let age = document.getElementById("age").value;
     let height = document.getElementById("height").value;
@@ -44,9 +44,9 @@ function tambahAnak() {
     
     if (name && age && height && weight) {
         anak.push(new person(name, parseInt(age), parseInt(height), parseInt(weight)));
-        tampilkanAnak();
+        tampilkan();
     } else {
         alert("Harap isi semua data!");
     }
 }
-tampilkanAnak();
+tampilkan();
