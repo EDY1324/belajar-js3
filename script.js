@@ -12,9 +12,9 @@ const keluarga = [
     new person ("Habib", 6, 140, 40)
 ];
 // Menampilkan dengan menggunakan Pengulangan
-function tampilkan() {
+function tampilkan(data = keluarga) {
 let text = "";
-keluarga.forEach(a => {
+data.forEach(a => {
     text += `<tr>
                 <td>${a.name}</td>
                 <td>${a.age}</td>
@@ -27,13 +27,27 @@ document.getElementById("output").innerHTML = text;
 //membuat fungsi mencari nama anak
 function cari() {
     let searchName = document.getElementById("searchName").value.toLowerCase();
-    let found = keluarga.find(a => a.name.toLowerCase() === searchName);
 
-    if (found) {
-        document.getElementById("searchResult").innerHTML = `Nama : ${found.name}, Umur: ${found.age} Tahun, TB: ${found.height} cm, BB: ${found.weight} kg.`;
-    } else {
-        document.getElementById("searchResult").innerHTML = "Nama tidak ditemukan.";
+    if (searchName === "") {
+        tampilkan(keluarga);
+        return;
     }
+
+    let filtered = keluarga.filter(a => a.name.toLowerCase().includes(searchName));
+
+    if (filtered.length > 0) {
+        tampilkan(filtered);
+    } else {
+        document.getElementById("output").innerHTML = "<tr><td colspan='4'>Nama tidak ditemukan.</td></tr>";
+    }
+}
+//fungsi membuka modal/form
+function openModal() {
+    document.getElementById("modalTambah").showModal();
+}
+//fungsi menutup modal/form
+function closeModal() {
+    document.getElementById("modalTambah").close();
 }
 //membuat fungsi menambahkan anak
 function tambah() {
@@ -45,11 +59,12 @@ function tambah() {
     if (name && age && height && weight) {
         keluarga.push(new person(name, parseInt(age), parseInt(height), parseInt(weight)));
         tampilkan();
+        closeModal();
     } else {
         alert("Harap isi semua data!");
     }
 }
-
+//fungsi menghapus
 function hapus() {
     let deleteName = document.getElementById("deleteName").value.toLowerCase();
     let index = keluarga.findIndex(a => a.name.toLowerCase() === deleteName);

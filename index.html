@@ -5,6 +5,7 @@
     </head>
     <body>
         <h2>Daftar Person</h2>
+        <input type="text" id="searchName" placeholder="Masukan Nama" oninput="cari()">
         <table border="1">
             <thead>
                 <tr>
@@ -16,18 +17,17 @@
             </thead>
             <tbody id="output"></tbody>
         </table>
-
-        <h3>Cari Person</h3>
-        <input type="text" id="searchName" placeholder="Masukan Nama">
-        <button onclick="cari()">Cari</button>
-        <p id="searchResult"></p>
-
+        <button onclick="openModal()">Tambah Person</button>
+        
+        <dialog id="modalTambah">
         <h3>Tambah Person</h3>
         <input type="text" id="name" placeholder="Nama">
         <input type="number" id="age" placeholder="Umur">
         <input type="number" id="height" placeholder="Tinggi Badan (cm)">
         <input type="number" id="weight" placeholder="Berat Badan (kg)">
         <button onclick="tambah()">Tambah</button>
+        <button onclick="closeModal()">Close</button>
+        </dialog>
 
         <h3>Hapus Person</h3>
         <input type="text" id="deleteName" placeholder="Masukan Nama">
