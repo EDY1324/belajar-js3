@@ -77,4 +77,41 @@ function hapus() {
         document.getElementById("deleteResult").innerHTML = "Nama Tidak berhasil di hapus.";
     }
 }
+//deklarasi untuk sotir
+let sortOrder = {
+    height: null,
+    weight: null
+};
+//membuat fungsi sotir data dengan logika
+function sortData(key) {
+    if (sortOrder[key] === null) {
+        sortOrder[key] = 1;
+    } else {
+        sortOrder[key] *= -1;
+    }
+
+    keluarga.sort((a,b) => {
+        if (a[key] > b[key]) return 1 * sortOrder[key];
+        if (a[key] < b[key]) return -1 * sortOrder[key];
+        return 0;
+    });
+
+    tampilkan();
+    updateSort(key);
+}
+//membuat fungsi sotir menggunakan simbol
+function updateSort(activeKey) {
+    const headers = ["height","weight"];
+
+    headers.forEach(key => {
+        let icon = document.getElementById(`sort-icon-${key}`);
+        if (icon) {
+            if (key === activeKey) {
+                icon.innerHTML = sortOrder[key] === 1 ? "🔼" : "🔽";
+            } else {
+                icon.innerHTML = "↕️";
+            }
+        }
+    });
+}
 tampilkan();
